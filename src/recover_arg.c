@@ -83,6 +83,7 @@ void check_condi(args_t *arg, char **dest, char *str, int nb)
     arg->tunel = recov_tunel(dest, arg->tunel, nb);
     return;
 }
+
 void recover_all(args_t *arg)
 {
     char *str = NULL;
