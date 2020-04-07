@@ -8,14 +8,12 @@
 #include"my.h"
 #include"lemin.h"
 
-void test(void);
-
 int main(int ac, char **av)
 {
     args_t args;
     node_t *tmp;
     array_t *all = NULL;
-    
+
     recover_all(&args);
     tmp = init(args.start[0]);
     append_l(&all, tmp);
