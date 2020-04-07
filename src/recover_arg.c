@@ -5,8 +5,8 @@
 ** check_cmd
 */
 
-#include"../include/my.h"
-#include"../include/lemin.h"
+#include "my.h"
+#include "lemin.h"
 
 void recov_end(int e, char **dest, args_t *arg)
 {

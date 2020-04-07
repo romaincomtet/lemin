@@ -15,6 +15,7 @@ SRC  	=	src/main.c	\
 			src/check_error.c		\
 			src/chained_list.c	\
 			src/create_list.c	\
+			src/check_error_tunel.c 	\
 
 
 OBJ     =       $(SRC:.c=.o)

@@ -5,8 +5,8 @@
 ** recover_room
 */
 
-#include"../include/my.h"
-#include"../include/lemin.h"
+#include "my.h"
+#include "lemin.h"
 
 char ***recov_room(char **dest, char ***room, int n)
 {

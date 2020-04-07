@@ -66,6 +66,9 @@ typedef struct road
     char **b;
 }road_t;
 
+int check_word(char *str, char *str1);
+int check_with_name_room(args_t *a, char *str);
+int check_tunnel_name(args_t *a);
 char **a_star(array_t *all_node, node_t *start, char *end);
 void chain_list(char ***way, array_t **all);
 array_t *list_arg(char ***arg, array_t *tmp);
