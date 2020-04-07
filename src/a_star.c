@@ -5,7 +5,7 @@
 ** main.c
 */
 
-#include "../../include/lemin.h"
+#include "lemin.h"
 
 char **new_line(char **a, int len, char **b)
 {
@@ -69,7 +69,7 @@ int algo_start(road_t *D, array_t *n, node_t *start, node_t *end)
     return (0);
 }
 
-char **a_star(array_t *all_node, node_t *start, node_t *end)
+char **a_star(array_t *all_node, node_t *start, char *end)
 {
     road_t D;
     int d = 0;

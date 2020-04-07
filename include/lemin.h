@@ -8,7 +8,6 @@
 #ifndef my_lemin_h_
 #define my_lemin_h_
 #include "my.h"
-#include "chain_list.h"
 #define exit_error __asm__("movq $60, %rax\nmovq $84, %rdi\nsyscall");
 #include <stdio.h>
 #include <sys/types.h>
@@ -43,6 +42,58 @@ typedef struct args
     char ***tunel;
 }args_t;
 
+typedef struct node
+{
+    struct node *parent;
+    char *name;
+    int g;
+    struct array *tun;
+}node_t;
+
+typedef struct array
+{
+    struct node *S;
+    struct array *next;
+}array_t;
+
+typedef struct road
+{
+    array_t *open_list;
+    array_t *closed_list;
+    node_t *current_node;
+    int current_index;
+    array_t *children;
+    char **b;
+}road_t;
+
+char **a_star(array_t *all_node, node_t *start, char *end);
+void chain_list(char ***way, array_t **all);
+array_t *list_arg(char ***arg, array_t *tmp);
+node_t *init(char *name);
+void append_l(array_t **D, node_t *L);
+char *my_strcat_free(char *fr, char const *src);
+void loop_child(road_t *D, node_t *end_node);
+int loop_child2(road_t *D, node_t *end_node);
+int is_child_in(road_t *D, array_t *tmp);
+int is_same_position(node_t *tmp, node_t *compare);
+void get_the_current_node(road_t *D);
+node_t *init_node(node_t *parent);
+void pop_l(array_t **D, int index);
+void charge_map(road_t *D, char *filename);
+char **create_array(road_t *D, char *buffer);
+void get_rows(road_t *D);
+int get_nb_cols(char const *arr);
+void free_structure2(array_t *tmp);
+void free_node(node_t *tmp);
+void free_structure(array_t *tmp);
+void free_all(road_t *D);
+void pop_l(array_t **D, int index);
+int strlen_l(array_t *D);
+void append_l(array_t **D, node_t *L);
+char *my_strcat_slash(char *file, char *name);
+char *my_strdup(char *src);
+
+node_t *init_all_node_tunnel(args_t args);
 int check_name_ex(args_t *arg);
 int check_coord(args_t *arg);
 void recover_all(args_t *arg);

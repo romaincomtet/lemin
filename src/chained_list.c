@@ -5,7 +5,6 @@
 ** chained_list.c
 */
 
-#include "chain_list.h"
 #include "lemin.h"
 #include "my.h"
 
@@ -35,23 +34,23 @@ array_t *list_arg(char ***arg, array_t *tmp)
 
 void add(node_t *start, char *name)
 {
-    array_t *new = malloc(sizeof(array_t));
-    node_t *new_node = malloc(sizeof(node_t));
-    array_t *tmp = start->tun;
+    // array_t *new = malloc(sizeof(array_t));
+    // node_t *new_node = malloc(sizeof(node_t));
+    // array_t *tmp = start->tun;
 
-    if (start == NULL || new == NULL || new_node == NULL)
-        exit_error;
-    new_node = init(name);
-    new->S = new_node;
-    new->next = NULL;
-    if (tmp == NULL)
-        start->tun = new;
-    else {
-        while (tmp != NULL) {
-            tmp = tmp->next;
-        }
-        tmp = new;
-    }
+    // if (start == NULL || new == NULL || new_node == NULL)
+    //     exit_error;
+    // new_node = init(name);
+    // new->S = new_node;
+    // new->next = NULL;
+    // if (tmp == NULL)
+    //     start->tun = new;
+    // else {
+    //     while (tmp != NULL) {
+    //         tmp = tmp->next;
+    //     }
+    //     tmp = new;
+    // }
 }
 
 void print_list(array_t *start)
@@ -68,18 +67,57 @@ void print_list(array_t *start)
     printf("NULL\n");
 }
 
-void chain_list(char ***way, char *first, array_t *all)
+void free_just_struct(array_t **all)
 {
-    char *one, *two;
-    node_t *start = init(first);
+    array_t *tmp = *all;
+    array_t *tmp1;
 
-    print_list(all);
+    while (tmp != NULL) {
+        tmp1 = tmp;
+        tmp = tmp->next;
+        free(tmp1);
+    }
+}
+
+node_t *init_all_node_tunnel(args_t args)
+{
+    node_t *tmp;
+    array_t *all = NULL;
+
+    tmp = init(args.start[0]);
+    append_l(&all, tmp);
+    all = list_arg(args.room, all);
+    tmp = init(args.end[0]);
+    append_l(&all, tmp);
+    chain_list(args.tunel, &all);
+    tmp = all->S;
+    free_just_struct(&all);
+    return (tmp);
+}
+
+node_t *find_str(char *str, array_t *all)
+{
+    array_t *tmp = all;
+
+    if (all != NULL) {
+        while (tmp != NULL) {
+            if (my_strcmp(tmp->S->name, str) == 0)
+                return (tmp->S);
+            tmp = tmp->next;
+        }
+    }
+    return (NULL);
+}
+
+void chain_list(char ***way, array_t **all)
+{
+    node_t *one, *two;
+    array_t *tmp;
+
     for (int i = 0; way[i] != NULL; i++) {
-        one = way[i][0];
-        two = way[i][1];
-        if (my_strcmp(first, two) == 0)
-            add(start, one);
-        if (my_strcmp(first, one) == 0)
-            add(start, two);
+        one = find_str(way[i][0], *all);
+        two = find_str(way[i][1], *all);
+        append_l(&one->tun, two);
+        append_l(&two->tun, one);
     }
 }
