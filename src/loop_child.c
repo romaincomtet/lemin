@@ -26,7 +26,7 @@ int is_child_in2(road_t *D, array_t *tmp, char *end)
 
     while (tmp != NULL) {
         if (my_strcmp(D->children->S->name, tmp->S->name) == 0 &&
-        D->children->S->g > tmp->S->g && 
+        D->children->S->g < tmp->S->g && 
         my_strcmp(D->children->S->name, end) != 0) {
             pop_l(&D->open_list, a);
             return (0);
