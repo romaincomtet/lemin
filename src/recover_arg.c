@@ -5,8 +5,8 @@
 ** check_cmd
 */
 
-#include"../include/my.h"
-#include"../include/lemin.h"
+#include "my.h"
+#include "lemin.h"
 
 void recov_end(int e, char **dest, args_t *arg)
 {
@@ -96,7 +96,6 @@ void recover_all(args_t *arg)
     arg->tunel[0] = NULL;
     for (int n = 0; getline(&str, &l, stdin) != -1;)
         check_condi(arg, dest, str, n);
-    check_coord(arg);
     check_name_ex(arg);
     return;
 }

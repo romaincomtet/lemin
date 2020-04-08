@@ -5,8 +5,8 @@
 ** check_arg_err
 */
 
-#include"../include/my.h"
-#include"../include/lemin.h"
+#include "my.h"
+#include "lemin.h"
 
 int check_is_nb(char *str)
 {

@@ -5,8 +5,8 @@
 ** newline_tab
 */
 
-#include"../include/my.h"
-#include"../include/lemin.h"
+#include "my.h"
+#include "lemin.h"
 
 int count_lin1_env(char ***env)
 {

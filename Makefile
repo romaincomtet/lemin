@@ -18,6 +18,8 @@ SRC  	=	src/main.c	\
 			src/a_star.c 		\
 			src/loop_child.c 	\
 			src/free_fonction.c
+			src/check_error_tunel.c
+
 
 OBJ     =       $(SRC:.c=.o)
 

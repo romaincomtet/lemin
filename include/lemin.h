@@ -69,6 +69,9 @@ typedef struct road
 char *my_strcat_free(char *dest, char const *src);
 void loop_child(road_t *D, char *start, char *end);
 char **a_star(node_t *start, char *end);
+int check_word(char *str, char *str1);
+int check_with_name_room(args_t *a, char *str);
+int check_tunnel_name(args_t *a);
 void chain_list(char ***way, array_t **all);
 array_t *list_arg(char ***arg, array_t *tmp);
 node_t *init(char *name);
