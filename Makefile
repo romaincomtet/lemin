@@ -17,7 +17,7 @@ SRC  	=	src/main.c	\
 			src/create_list.c	\
 			src/a_star.c 		\
 			src/loop_child.c 	\
-			src/free_fonction.c
+			src/free_fonction.c	\
 			src/check_error_tunel.c
 
 
