@@ -15,6 +15,6 @@ int main(int ac, char **av)
     
     recover_all(&args);
     tmp = init_all_node_tunnel(args);
-    
+    a_star(tmp, args.end[0]);
     return (0);
 }

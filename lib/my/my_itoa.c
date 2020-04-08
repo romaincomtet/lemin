@@ -21,10 +21,9 @@ char *my_itoa(int nb)
     int size = my_strlen_int(nb);
     char *str = NULL;
 
-    str = malloc(sizeof(*str) * (size + 1));
-    size--;
-    for (; size != -1; size--) {
-        str[size] = nb % 10 + '0';
+    str = malloc(sizeof(char) * (size + 1));
+    for (int s = size - 1; s > -1; s--) {
+        str[s] = nb % 10 + '0';
         nb /= 10;
     }
     str[size] = '\0';

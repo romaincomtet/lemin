@@ -5,7 +5,7 @@
 ** free_fonction.c
 */
 
-#include "../../include/lemin.h"
+#include "lemin.h"
 
 void free_all(road_t *D)
 {

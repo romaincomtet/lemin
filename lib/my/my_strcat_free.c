@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2019
-** my_strcat.c
+** lemin_2019
 ** File description:
-** my_strcat
+** my_strcat_free.c
 */
 
 #include <stdlib.h>
@@ -17,7 +17,7 @@ int my_strlenb(char const *str)
     return (i);
 }
 
-char *my_strcat(char *dest, char const *src)
+char *my_strcat_free(char *dest, char const *src)
 {
     int size1 = my_strlenb(dest);
     int size2 = my_strlenb(src);
@@ -33,5 +33,6 @@ char *my_strcat(char *dest, char const *src)
         k++;
     }
     final[k] = '\0';
+    free(dest);
     return (final);
 }

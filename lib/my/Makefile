@@ -24,6 +24,7 @@ SRC	=	my_compute_power_rec.c	\
 		my_str_tab.c	\
 		get_next_line.c		\
 		my_itoa.c 		\
+		my_strcat_free.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -35,10 +36,11 @@ $(NAME):	$(OBJ)
 	ar rc $(NAME) $(OBJ)
 	cp $(NAME) ../libmy.a
 	cp my.h ../../include/my.h
-	rm *.o
+
 clean:
 	rm -f $(OBJ)
 	rm -f ../libmy.a
+	rm -f *.o
 
 fclean: clean
 	rm -f $(NAME)

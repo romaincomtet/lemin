@@ -66,18 +66,17 @@ typedef struct road
     char **b;
 }road_t;
 
-char **a_star(array_t *all_node, node_t *start, char *end);
+char *my_strcat_free(char *dest, char const *src);
+void loop_child(road_t *D, char *start, char *end);
+char **a_star(node_t *start, char *end);
 void chain_list(char ***way, array_t **all);
 array_t *list_arg(char ***arg, array_t *tmp);
 node_t *init(char *name);
 void append_l(array_t **D, node_t *L);
-char *my_strcat_free(char *fr, char const *src);
-void loop_child(road_t *D, node_t *end_node);
-int loop_child2(road_t *D, node_t *end_node);
-int is_child_in(road_t *D, array_t *tmp);
+int loop_child2(road_t *D, char *end);
+int is_child_in(road_t *D, array_t *tmp, char *start, char *end);
 int is_same_position(node_t *tmp, node_t *compare);
 void get_the_current_node(road_t *D);
-node_t *init_node(node_t *parent);
 void pop_l(array_t **D, int index);
 void charge_map(road_t *D, char *filename);
 char **create_array(road_t *D, char *buffer);

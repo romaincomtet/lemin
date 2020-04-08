@@ -32,27 +32,6 @@ array_t *list_arg(char ***arg, array_t *tmp)
     return (tmp);
 }
 
-void add(node_t *start, char *name)
-{
-    // array_t *new = malloc(sizeof(array_t));
-    // node_t *new_node = malloc(sizeof(node_t));
-    // array_t *tmp = start->tun;
-
-    // if (start == NULL || new == NULL || new_node == NULL)
-    //     exit_error;
-    // new_node = init(name);
-    // new->S = new_node;
-    // new->next = NULL;
-    // if (tmp == NULL)
-    //     start->tun = new;
-    // else {
-    //     while (tmp != NULL) {
-    //         tmp = tmp->next;
-    //     }
-    //     tmp = new;
-    // }
-}
-
 void print_list(array_t *start)
 {
     array_t *actual = malloc(sizeof(array_t));

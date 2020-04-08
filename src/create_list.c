@@ -71,14 +71,3 @@ void get_the_current_node(road_t *D)
         D->current_index = 0;
     }
 }
-
-node_t *init_node(node_t *parent)
-{
-    node_t *S = malloc(sizeof(node_t));
-
-    S->parent = NULL;
-    if (parent != NULL)
-        S->parent = parent;
-    S->g = 0;
-    return (S);
-}

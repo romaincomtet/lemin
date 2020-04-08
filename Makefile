@@ -15,7 +15,9 @@ SRC  	=	src/main.c	\
 			src/check_error.c		\
 			src/chained_list.c	\
 			src/create_list.c	\
-
+			src/a_star.c 		\
+			src/loop_child.c 	\
+			src/free_fonction.c
 
 OBJ     =       $(SRC:.c=.o)
 
