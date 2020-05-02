@@ -8,6 +8,17 @@
 #include "my.h"
 #include "lemin.h"
 
+void print_start_end(char **dest)
+{
+    my_putstr(dest[0]);
+    my_putstr(" ");
+    my_putstr(dest[1]);
+    my_putstr(" ");
+    my_putstr(dest[2]);
+    my_putstr("\n");
+    return;
+}
+
 int count_lin1_env(char ***env)
 {
     int n = 0;

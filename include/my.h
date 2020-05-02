@@ -20,7 +20,7 @@ int my_compute_square_root(int nb);
 char *my_strcpy(char *dest, char const *src);
 char *my_strncpy(char *dest, char const *src, int n);
 char *my_revstr(char *str);
-char *my_strcat(char *dest, char const *scr);
+char *my_strcat(char *dest, char *src);
 int my_put_nbr(int nb);
 int my_getnbr(char const *str);
 int my_str_isnum(char const *str);

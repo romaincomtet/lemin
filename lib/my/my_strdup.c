@@ -1,30 +1,27 @@
 /*
 ** EPITECH PROJECT, 2019
-** my_strdup.c
+** lib
 ** File description:
-** my_strdup.c
+** my_strdup
 */
 
-#include "my.h"
 #include <stdlib.h>
 
-char *my_strcpy1(char *dest, char const *src)
+char *my_strdup(char const *src)
 {
-    int a = 0;
+    char *str;
+    int len = 0;
+    int i = 0;
 
-    while (src[a] != '\n') {
-        dest[a] = src[a];
-        a++;
+    if (src == NULL)
+        return (NULL);
+    for (; src[len] != '\0'; len++);
+    str = malloc(sizeof(char) * (len + 1));
+    while (i < len)
+    {
+        str[i] = src[i];
+        i++;
     }
-    dest[a] = '\0';
-    return (dest);
-}
-
-char *my_strdup(char *src)
-{
-    int a = my_strlen(src);
-    char *dest = malloc(sizeof(char) * my_strlen(src) + 4);
-
-    my_strcpy1(dest, src);
-    return (dest);
+    str[i] = '\0';
+    return (str);
 }

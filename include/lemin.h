@@ -40,6 +40,13 @@ typedef struct args
     char **end;
     char ***room;
     char ***tunel;
+    int *pres;
+    int stop;
+    int nb_chem;
+    int nb_road;
+    int pass;
+    int sta;
+    int ed;
 }args_t;
 
 typedef struct node
@@ -66,9 +73,19 @@ typedef struct road
     char **b;
 }road_t;
 
+typedef struct algo
+{
+    int nb_turn;
+    char *chemin;
+    struct algo *next;
+}algo_t;
+
+algo_t *a_star(node_t *start, char *end);
+void print_start_end(char **dest);
+char *clean_str(char *str);
 char *my_strcat_free(char *dest, char const *src);
 void loop_child(road_t *D, char *start, char *end);
-char **a_star(node_t *start, char *end);
+algo_t *algo_start(road_t *D, node_t *start, char *end, algo_t *R);
 int check_word(char *str, char *str1);
 int check_with_name_room(args_t *a, char *str);
 int check_tunnel_name(args_t *a);
@@ -94,6 +111,11 @@ int strlen_l(array_t *D);
 void append_l(array_t **D, node_t *L);
 char *my_strcat_slash(char *file, char *name);
 char *my_strdup(char *src);
+int found_goal(road_t *D, char *end_node, algo_t **R);
+char **new_line(char **b);
+int test(node_t *tmp);
+void algo(args_t *arg, char ***road);
+char ***parth_chem(algo_t *road, args_t *args);
 
 node_t *init_all_node_tunnel(args_t args);
 int check_name_ex(args_t *arg);

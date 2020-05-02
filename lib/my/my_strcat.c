@@ -6,21 +6,12 @@
 */
 
 #include <stdlib.h>
+#include "my.h"
 
-int my_strlenb(char const *str)
+char *my_strcat(char *dest, char *src)
 {
-    int i = 0;
-
-    while (str[i] != '\0') {
-        i = i + 1;
-    }
-    return (i);
-}
-
-char *my_strcat(char *dest, char const *src)
-{
-    int size1 = my_strlenb(dest);
-    int size2 = my_strlenb(src);
+    int size1 = my_strlen(dest);
+    int size2 = my_strlen(src);
     char *final = malloc(sizeof(char *) * size1 + size2 + 1);
     int j = 0;
     int k = 0;

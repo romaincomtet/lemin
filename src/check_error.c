@@ -50,7 +50,7 @@ int check_coord(args_t *a)
             (check_word(a->start[2], a->room[i][2]) == 0))
             exit_error;
         if ((check_word(a->end[1], a->room[i][1]) == 0) &&
-            (check_word(a->end[2],a->room[i][2]) == 0))
+            (check_word(a->end[2], a->room[i][2]) == 0))
             exit_error;
     }
     return (0);
